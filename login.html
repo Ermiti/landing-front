@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        <div class="imgcontainer">
+          <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        </div>
+      
+        <div class="container">
+          <label for="username"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+      
+          <label for="password"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password" required>
+      
+          <button type="submit">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember" > Remember me
+          </label>
+        </div>
+      
+        <div class="container" style="background-color:#f1f1f1">
+
+
+
+
+
+          
+          <button id="cancel-btn" type="button" class="cancelbtn" onclick="cancelButton()">Cancel</button>
+
+
+
+
+
+
+
+
+
+          <span class="password">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+
+
+      <p id="thank-you-message">
+        Thank you for contacting us. We will be in touch with you very soon.
+      </p>
+      <form action="forms/subscribe.php" method="post">
+        <input type="email" name="email" placeholder="Enter your Email">
+        <input type="submit" value="Subscribe" onclick="tanxMsg()">
+      </form>
+    
+<style>
+#thank-you-message {
+  display: none;
+}
+
+#thank-you-message.show {
+  display: block;
+}
+
+    /* Bordered form */
+form {
+  border: 3px solid #f1f1f1;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+} 
+</style>
+<script>
+  const mysql = require('mysql');
+const express = require('express');
+const session = require('express-session');
+const path = require('path');
+
+const connection = mysql.createConnection({
+	host     : 'localhost',
+	user     : 'root',
+	password : '',
+	database : 'nodelogin'
+});
+
+const app = express();
+app.use(session({
+	secret: 'secret',
+	resave: true,
+	saveUninitialized: true
+}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'static')));
+//call a account
+// http://localhost:3000/
+app.get('/', function(request, response) {
+	// Render login template
+	response.sendFile(path.join(__dirname + '/login.html'));
+});
+
+
+
+
+function createLogin(){
+// http://localhost:3000/auth
+app.post('/login', function(request, response) {
+	// Capture the input fields
+	let username = request.body.username;
+	let password = request.body.password;
+	// Ensure the input fields exists and are not empty
+	if (username && password) {
+		// Execute SQL query that'll select the account from the database based on the specified username and password
+		connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+			// If there is an issue with the query, output the error
+			if (error) throw error;
+			// If the account exists
+			if (results.length > 0) {
+				// Authenticate the user
+				request.session.loggedin = true;
+				request.session.username = username;
+				// Redirect to home page
+				response.redirect("homePage");
+			} else {
+				response.send('Incorrect Username and/or Password!');
+			}			
+			response.end();
+		});
+	} else {
+		response.send('Please enter Username and Password!');
+		response.end();
+	}
+});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+let btn = document.getElementById("cancel-btn");
+
+   
+ 
+function cancelButton(){
+  document.getElementById("cancel-btn").addEventListener(click(function(event){
+    if(cancelBtn){
+      app.get('/homePage')
+  }
+  }));
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function tanxMsg(){
+
+
+app.get('/homePage', function(request, response) {
+	// If the user is loggedin
+	if (request.session.loggedin) {
+		// Output username
+		response.send('Welcome back, ' + request.session.username + '!');
+	} else {
+		// Not logged in
+		response.send('Please login to view this page!');
+	}
+	response.end();
+});
+
+app.listen(3000);
+
+
+}
+</script>
+
+
+</body>
+</html>
