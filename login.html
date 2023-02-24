@@ -14,46 +14,25 @@
       
         <div class="container">
           <label for="username"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <input type="text" placeholder="Enter Username" name="username" required>
       
           <label for="password"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="password" required>
       
-          <button type="submit">Login</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember" > Remember me
-          </label>
+          <button type="submit" onclick="loginBtn()">Login</button>
+         <!-- <label>
+            <input type="checkbox" checked="checked" name="remember_me" > Remember me
+          </label> -->
         </div>
       
         <div class="container" style="background-color:#f1f1f1">
-
-
-
-
-
-          
-          <button id="cancel-btn" type="button" class="cancelbtn" onclick="cancelButton()">Cancel</button>
-
-
-
-
-
-
-
-
-
-          <span class="password">Forgot <a href="#">password?</a></span>
+        <button id="cancel-btn" type="button" class="cancelbtn" onclick="cancelBtn()">Cancel</button>
+        <span class="password">Forgot <a href="#">password?</a></span>      <span class="newAccount">or create <a href="#">account</a></span>
         </div>
       </form>
 
 
-      <p id="thank-you-message">
-        Thank you for contacting us. We will be in touch with you very soon.
-      </p>
-      <form action="forms/subscribe.php" method="post">
-        <input type="email" name="email" placeholder="Enter your Email">
-        <input type="submit" value="Subscribe" onclick="tanxMsg()">
-      </form>
+        <input type="submit" value="login" onclick="tanxMsg()">
     
 <style>
 #thank-you-message {
@@ -137,17 +116,20 @@ span.psw {
 } 
 </style>
 <script>
-  const mysql = require('mysql');
+const mysql = require('mysql');
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
+const jquery = require('Jquery')
 
 const connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
 	password : '',
-	database : 'nodelogin'
+	database : 'nodeLogin'
 });
+
+
 
 const app = express();
 app.use(session({
@@ -158,24 +140,12 @@ app.use(session({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'static')));
-//call a account
-// http://localhost:3000/
-app.get('/', function(request, response) {
-	// Render login template
-	response.sendFile(path.join(__dirname + '/login.html'));
-});
 
 
-
-
-function createLogin(){
-// http://localhost:3000/auth
-app.post('/login', function(request, response) {
-	// Capture the input fields
-	let username = request.body.username;
-	let password = request.body.password;
-	// Ensure the input fields exists and are not empty
-	if (username && password) {
+let username = request.body.username;
+let password = request.body.password;
+function loginBtn (){
+  if (username && password) {
 		// Execute SQL query that'll select the account from the database based on the specified username and password
 		connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
 			// If there is an issue with the query, output the error
@@ -186,7 +156,7 @@ app.post('/login', function(request, response) {
 				request.session.loggedin = true;
 				request.session.username = username;
 				// Redirect to home page
-				response.redirect("homePage");
+				respons.redirect("C:\Users\mh\Desktop\setTweFiles\homePage.html");
 			} else {
 				response.send('Incorrect Username and/or Password!');
 			}			
@@ -195,73 +165,23 @@ app.post('/login', function(request, response) {
 	} else {
 		response.send('Please enter Username and Password!');
 		response.end();
-	}
-});
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-let btn = document.getElementById("cancel-btn");
-
-   
- 
-function cancelButton(){
-  document.getElementById("cancel-btn").addEventListener(click(function(event){
-    if(cancelBtn){
-      app.get('/homePage')
   }
-  }));
- 
-}
+
+    };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function tanxMsg(){
-
-
-app.get('/homePage', function(request, response) {
-	// If the user is loggedin
-	if (request.session.loggedin) {
-		// Output username
-		response.send('Welcome back, ' + request.session.username + '!');
-	} else {
-		// Not logged in
-		response.send('Please login to view this page!');
-	}
-	response.end();
-});
-
-app.listen(3000);
-
+function cancelBtn (){
+  window.location= ""
 
 }
+
+
 </script>
 
 
 </body>
 </html>
+
+
+
+
