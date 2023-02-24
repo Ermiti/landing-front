@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=500, initial-scale=1.0">
+    <title>خانه</title>
+</head>
+<body>
+    
+  </style>
+  <header>
+    <h1 id="header">به وب‌سایت دانش آموزان برنامه‌نویس خوش آمدید</h1>
+ </header>
+    <div class="container" onclick="showMenu()">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+    <!--menu -->
+    <div class="vertical-menu" id="homePageMenu">
+        <a href="#" class="active">Home</a>
+        <a href="./login.html">ورود به حساب کاربری</a>
+        <a href="#ab">درباره سایت</a>
+        <a href="#services">خدمات سایت</a>
+        <a href="./connectUs.html">ارتباط با ما</a>
+      </div>
+
+
+
+
+    <nav>
+      <!--   <ul>
+            <li><a href="#about">درباره سایت</a> </li>
+            <li><a href="#services">خدمات سایت</a> </li>
+            <li><a href="#connect">ارتباط با ما</a> </li>
+        </ul> -->
+        <main>
+            <section class="services">
+                <h2>خدمات سایت</h2>
+                    <u>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </u>
+        </main>
+        <footer>
+            <p>copyright & copy; 2023</p>
+        </footer>
+    </nav>
+</body>
+<style>
+    .vertical-menu {
+display: none;
+
+  width: 200px; /* Set a width if you like */
+}
+
+.vertical-menu a {
+  background-color: #eee; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+  background-color: #04AA6D; /* Add a green color to the "active/current" link */
+  color: white;
+}
+
+</style>
+
+<style>
+  .container {
+display: inline-block;
+cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+width: 35px;
+height: 5px;
+background-color: #333;
+margin: 6px 0;
+transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+transform: translate(0, 11px) rotate(-45deg);
+}
+
+/* Fade out the second bar */
+.change .bar2 {opacity: 0;}
+
+/* Rotate last bar */
+.change .bar3 {
+transform: translate(0, -11px) rotate(45deg);
+}
+</style>
+
+<style>
+  
+</style>
+
+<script>
+  //show menu function
+  function showMenu (){
+  var menu = document.getElementById("homePageMenu");
+  if (menu.style.display === "none"){
+    menu.style.display = "block";
+  }
+  else{
+    menu.style.display = "none";
+  }
+  }
+</script>
+</html>
