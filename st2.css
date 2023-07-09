@@ -1,7 +1,4 @@
-main{
-    justify-content: center;
-    align-items: center;
-}
+
 nav{
     
     display: flex;
@@ -90,12 +87,29 @@ nav{
         margin-top: 50px;
         margin-bottom: 0;
     }
+    .hContact{
+        text-align: left;
+    }
     .pBio{
         text-align: center;
         color: gray;
         font-size: 15px;
         margin: 0;
         padding-bottom: 50px;
+    }
+    .pContact{
+        padding: 0;
+    }
+    .contactIcon{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        margin: auto 0;
+    }
+    .contactImg{
+        justify-content: center;
+        align-items: center;
+       margin: 40% 5px auto;
     }
     .abtMe{
         display: flex;
@@ -150,17 +164,10 @@ nav{
     .showSkill{
         display: none;
     }
-    /* #html{
-        margin: 10px 0;
-        height:24px;
-        width:25%;
-        background-color: white;
-    } */
     progress{
         border-radius: 4px;
     }
     progress[value] {
-        /* Reset the default appearance */
         -webkit-appearance: none;
          appearance: none;
         margin: 5px 0;
@@ -169,18 +176,8 @@ nav{
         
       }
       progress[value]::-webkit-progress-value {
-        /* background-image:
-             -webkit-linear-gradient(-45deg, 
-                                     transparent 33%, rgba(0, 0, 0, .1) 33%, 
-                                     rgba(0,0, 0, .1) 66%, transparent 66%),
-             -webkit-linear-gradient(top, 
-                                     rgba(255, 255, 255, .25), 
-                                     rgba(0, 0, 0, .25)),
-             -webkit-linear-gradient(left, #09c, #f44); */
-             background-color: black;
-      
-          border-radius: 4px; 
-          /* background-size: 35px 20px, 100% 100%, 100% 100%; */
+        background-color: black;
+        border-radius: 4px; 
       }
 
 
@@ -227,6 +224,7 @@ nav{
     #slider{
         height: 300px;
         width: 800px;
+        background-color: whitesmoke;
     }
     .IconsLeftRight{
         width: 40px;
@@ -239,7 +237,6 @@ nav{
         justify-content:space-evenly;
         text-align: center;
         align-items: center;
-        margin: auto 0;
     }
     .contactLink{
         display: flex;
@@ -250,6 +247,7 @@ nav{
         display: flex;
         flex-direction: column;
         gap: 4px;
+        padding-top: 5%;
     }
     .flexedForm{
         display: flex;
@@ -257,12 +255,16 @@ nav{
         gap: 4px;
     }
     .input{
-        height: 40px;
+        height: 60px;
         border: none;
+        border-radius: 3px;
         background: #FFEBEB;
     }
-    .lrMedia{
-        display: none;
+    /* #parInput{
+        height: 120px;
+    } */
+    .btnForm{
+    align-items: end;   
     }
     @media screen and (max-width : 1000px){
         header{
@@ -341,12 +343,7 @@ nav{
             justify-content:center;
             margin: 0 auto;
         }
-        .lrMedia{
-            gap: 30px;
-            display: flex;
-            margin: 10px auto;
-            align-items: center;
-        }
+
         .desIcon{
             display: none;
         }
