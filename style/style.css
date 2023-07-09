@@ -1,0 +1,280 @@
+/* first page css part */
+.bodyBgCover{
+    height: fit-content;
+    /* background-image: url(../); 
+    background-repeat: no-repeat;
+   background-attachment: fixed; 
+    background-size: cover;  */
+    justify-content: center;
+    
+}
+.btns{
+        width: 100%;
+        height: 200px;
+        gap: 10px;
+        justify-content: center;
+        display: flex;
+       align-items: center;
+}
+.btn{
+        text-align: center;
+        height: 65px;
+        font-size: 25px;
+        width: 100px;
+}
+#loginBtn{  
+        background-color: #fff;
+        border:1px solid black;
+        color: black;
+}
+
+#registerBtn{
+        background-color: black;
+        color: #fff;
+}
+header{
+    position: sticky;
+    top: 1px;
+}
+.navMenu{
+    display: flex;
+    justify-content: center;
+    background-color: brown;
+    max-width:100%;
+    height: 80px;
+    align-items: center;
+    text-align: left;
+ 
+}
+ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between; 
+    align-items: center;
+    
+}
+li{
+    padding: 18px;
+}
+.navMenu ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 8px 15px;
+}
+@media(max-width: 768px){
+    
+
+    .topPostImg{
+        max-width: 100%;
+        height: auto;
+    }
+    .rightcolumn{
+        display: none;
+    }
+    .AllPics{
+        display: none;
+    }
+    #AllPics{
+        max-width: 100%;
+    }
+    .btmPart{
+        flex-direction: column;
+    }
+    .seeMoreDiv{
+        display: none;
+    }
+
+    .leftPic{
+        display: none;
+    }
+    #seeMoreDiv{
+        max-width: 100%;
+    }
+    .Icons{
+        display: flex;
+        flex-direction: row;
+        size: 30px;
+    }
+    .btmNav{
+        background-image: url(../galleryPics.html/btmPic.png);
+        background-repeat: no-repeat; 
+        position: sticky;
+        bottom:0;
+        background-size: cover; 
+        justify-content: center;
+        max-width:100%;
+        height: 80px; 
+        text-align: center;
+        background-position-x: center;
+        border-radius: 4px;
+    }
+
+}
+
+/* gallery css */
+.username{
+    color: grey;
+    margin: 0;
+}
+.userEmail{
+    padding-bottom: 3px;
+    margin: 0;
+}
+
+.topPostImg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 500px;
+    border-radius: 4px;
+    
+}
+.btmPart{
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+}
+.Icons{
+    display:flex;
+    width: 30px;
+    height: 30px;
+}
+.rightPart{
+display: flex;
+flex-direction:column;
+}
+.rightPic{
+width: 300px; 
+margin: 5px;
+}
+.leftPart{
+display: flex;
+
+flex-direction:column;
+}
+.leftPic{
+width: 300px; 
+margin: 5px;
+}
+
+.H2SeeMore{
+    display:inline-flex;
+    padding: 10px;
+    padding-left: 105px;
+}
+#btnMore{
+   
+    margin: 10px 45%;
+    height: 50px;
+    width: 160px;
+    /* margin: 10px; */
+    border: 2.5px solid black;
+    background-color:white;
+    color: black;
+    font-size: 20px;
+    border-radius: 4px;
+   
+}
+#seeMoreDiv{
+justify-content: center;
+text-align:center;
+
+}
+#AllPics{
+display: none;
+}
+.main{       
+background-image: url(./galleryPics.html/basicBg.jpg);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+
+
+
+/*login part css *********************/
+.backicon{
+    width:30px ;
+    height: 30px;
+    padding-top: 50px;
+    padding-left:15px ;
+}
+.titleH{
+    font-size: 30px;
+    color: black;
+    position: relative;
+    left: 25px;
+    margin-bottom: 0;
+}
+.backBtn{
+    height: 70%;
+    display: flex;
+    justify-content:left;
+   
+}
+
+/* form css*/
+.Form{
+    display: flex;
+    flex-direction: column;
+}
+.input{
+    height: 60px;
+    margin: 10px;
+    border: 3px solid black;
+    border-radius: 4px;
+    
+}
+#submit{
+    height: 50px;
+    width: 75px;
+    margin: 10px;
+    border: 2.5px solid black;
+    background-color:white;
+    color: black;
+    font-size: 20px;
+    border-radius: 4px;
+    
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap; 
+    padding: 0 4px;
+   justify-content: center;
+   
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+    
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+  }
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media (max-width: 800px) {
+    .column {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media (max-width: 600px) {
+    .column {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
