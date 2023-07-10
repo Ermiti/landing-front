@@ -1,4 +1,6 @@
-
+body {
+    overflow-x: hidden;
+}
 nav{
     
     display: flex;
@@ -89,6 +91,8 @@ nav{
     }
     .hContact{
         text-align: left;
+        font-size: 30px large;
+
     }
     .pBio{
         text-align: center;
@@ -96,6 +100,13 @@ nav{
         font-size: 15px;
         margin: 0;
         padding-bottom: 50px;
+    }
+    .pFooter{
+        text-align: center;
+        font-size: 16px;
+        margin: 0;
+        padding-bottom: 50px;
+        color: #fff;
     }
     .pContact{
         padding: 0;
@@ -266,6 +277,89 @@ nav{
     .btnForm{
     align-items: end;   
     }
+    footer{
+        max-width: 100%;
+        margin-top: 10%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background-color:blueviolet;
+        border-radius: 6px;
+    }
+    .footerTopPart{
+        display: flex;
+        justify-content: space-around;
+        width: 80%;
+        margin: 0 auto;
+        color: #fff;
+    }
+    .footerWords{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+
+
+
+    .activityH2{
+        margin: auto 0;
+        font-size: 20px;
+        color: gray;
+    }
+    .activityDiv{
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 10px;
+    }
+    .qualiDiv{
+        gap: 60px;
+        display: flex;
+        justify-content: center;
+
+    }
+    .qualiBtm{
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin-top: 3%;
+    }
+    .lineDiv{
+        width: 0.5px;
+        height: 300px;
+        background-color: blueviolet;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+       } 
+       .qailiSapn{
+        background-color: blueviolet;
+        height: 10px;
+        width: 8px;
+        border-radius: 10px;
+       }
+       .RightLeftQuali{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+       }
+       .RightQuali{
+        position: relative;
+        bottom: 50px;
+       }
+       .sliderCounter{
+        height: 0.5px;
+        width: 300px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        margin: 20px auto 80px;
+       }
+
     @media screen and (max-width : 1000px){
         header{
             justify-content: center;
@@ -327,11 +421,12 @@ nav{
         }
         .services{
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            width: 70%;
         }
         #slider{
             display: flex;
-            width: 60%;
+            width: 80%;
             margin: 20px auto 200px;
             justify-content: space-between;
             gap: 50px;
@@ -346,5 +441,10 @@ nav{
 
         .desIcon{
             display: none;
+        }
+        .footerTopPart{
+            width: 100%;
+            align-items: center;
+            flex-direction: column;
         }
     }
