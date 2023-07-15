@@ -1,4 +1,4 @@
-MENU = {
+var MENU = {
     "espresso": {
         "ingredients": {
             "water": 50,
@@ -24,52 +24,52 @@ MENU = {
         },
         "cost": 3.0,
     }
-}
-COINS = {
+};
+var COINS = {
     "quarters": 0.25,
     "dimes": 0.10,
     "nickles": 0.05,
     "pennies": 0.01
-}
-resources = {
-    "water": 300,
+};
+var resources = {
+    "water": 400,
     "milk": 200,
     "coffee": 100,
-}
+};
 
 
-let earned_money = 0;
-let is_on = true;
+
+var earned_money = 0;
+var is_on = true;
 
 function  print_report(){
-    // prompt(`water: ${resources.water} , Milk: ${resources.milk} and coffee ${resources.coffee}`)
-    let resourse = document.getElementById("demo").innerHTML = `water: ${resources.water} , Milk: ${resources.milk} and coffee ${resources.coffee}`;
+    prompt(`water: ${resources.water} , Milk: ${resources.milk} and coffee ${resources.coffee}`)
+    //let resourse = document.getElementById("demo").innerHTML = `water: ${resources.water} , Milk: ${resources.milk} and coffee ${resources.coffee}`;
 
 }
 
 function check_resources(coffee){
-    
     try {
-        needed_ingredients = MENU.coffee.ingredients;
-        
+        var needed_ingredients = MENU[coffee].ingredients;
     } catch {
-        let comand = prompt("We don't have this in menu ✖️");
+        var comand = prompt("We don't have this in menu ✖️");
         return false;
     }
 
-    let is_ingredients_enough = true;
 
-    if (needed_ingredients.water > resources.water){
+    var is_ingredients_enough = true;
+
+    if ([needed_ingredients].water > resources.water){
         is_ingredients_enough = false;
-        let comand = prompt("Sorry there is not enough water");
+        var comand = prompt("Sorry there is not enough water");
     }
-    else if (needed_ingredients.milk > resources.milk){
+    else if ([needed_ingredients].milk > resources.milk){
         is_ingredients_enough = false;
-        let comand = prompt("Sorry there is not enough milk")
+        var comand = prompt("Sorry there is not enough milk")
     }
-    else if (needed_ingredients.coffee > resources.coffee){
+    else if ([needed_ingredients].coffee > resources.coffee){
         is_ingredients_enough = false;
-        prompt("Sorry there is not enough coffee");
+        var comand = prompt("Sorry there is not enough coffee");
     }
     return is_ingredients_enough;
 }
@@ -99,15 +99,16 @@ function prossece_coins(coffee_amount){
 
 function make_coffee(coffee_name){
 
-    resources.water -= MENU.coffee_name.ingredients.water;
-    resources.milk -= MENU.coffee_name.ingredients.milk;
-    resources.coffee -= MENU.coffee_name.ingredients.coffee;
-    earned_money += MENU.coffee_name.cost;
+    resources.water -= MENU[coffee_name].ingredients.water;
+    resources.milk -= MENU[coffee_name].ingredients.milk;
+    resources.coffee -= MENU[coffee_name].ingredients.coffee;
+    earned_money += MENU[coffee_name].cost;
 }
 
 
 while (is_on == true){
-    comand = prompt("What would you like? (espresso/latte/cappuccino):");
+
+    var comand = prompt("What would you like? (espresso/latte/cappuccino):");
 
     if (comand == "report" ){
         print_report();
@@ -124,13 +125,13 @@ while (is_on == true){
         continue;
     }
 
-    print(MENU.comand.cost)
-    process_result = prossece_coins(MENU.comand.cost)
+    var comand = prompt(MENU[comand].cost)
+    process_result = prossece_coins(MENU[comand].cost)
 
     if (process_result == false){
         continue;
     }
     make_coffee(comand)
-    prompt(`Here is ${process_result} in change. and Here is your {order} ☕️. Enjoy!`)
+    prompt(`Here is ${process_result} in change. and Here is your ${comand} ☕️. Enjoy!`)
 
 }
