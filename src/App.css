@@ -1,0 +1,94 @@
+.landing{
+  background-color: #5985E8;
+  margin-bottom: 100px;
+  height: 55rem;
+  width: 100%;
+  transform: skewY(-2.7deg);
+  margin-top: -15rem;
+}
+.form{
+  height: 20rem;
+  width: 16.4rem;
+  background: #FFFFFF;
+  margin: 26rem 53rem;
+  position: absolute;
+  transform: skewY(2deg);
+  box-shadow: 5px -8px 5px #ADB4BA;
+  
+}
+#p{
+  text-align: center;
+  font-size: 1.5rem;
+
+ 
+}
+.p{
+  margin: 16rem 13rem;
+  position: absolute;
+  transform: skewY(2.7deg);
+}
+
+.lable{
+  margin-left: 2.8rem;
+  margin-top: 0.9rem;
+  position: absolute;
+  font-size: 0.9rem;
+  color: #AEAFB1;
+}
+input{
+  padding: 0.7rem 1rem;
+  margin: 0.4rem 2rem;
+  background-color: #F2F2F2;
+  border-radius: 0.25rem;
+  border: navajowhite;
+  
+}
+.submit-btn{
+  background-color: #1E81FF;
+  margin: 0.5rem 2rem;
+  padding: 0.7rem 4.4rem;
+  border: none;
+  border-radius: 0.5rem;
+  color: #FFFFFF;
+}
+#scnd{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  margin: 17rem 40rem;
+  gap: 2r;
+  gap: 2rem;
+  transform: skewY(2.7deg);
+}
+.white{
+  color: white;
+}
+.left-div{
+  height: 20rem;
+  margin: 25rem 14rem;
+  position: absolute;
+  transform: skewY(2deg);
+  box-sizing: content-box;
+  width: 23rem;
+}
+#header{
+  font-size: xx-large;
+}
+.btn-left{
+  background-color: #00CA4D;
+  border: none;
+  padding: 0.4rem 1.5rem;
+  border-radius: 0.8rem;
+  text-align: center;
+}
+.header{
+  display: flex;
+}
+#btn-header{
+  background-color: #5985E8;
+  border: 0.1rem solid #FFFFFF;
+  margin-top: 0.6rem;
+  width: 6rem;
+  height: 2.5rem;
+  color: #FFFFFF;
+}
